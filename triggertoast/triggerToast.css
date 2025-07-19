@@ -1,0 +1,51 @@
+/* triggerToast.css */
+.triggerToast-container {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+}
+.triggerToast-alert {
+  margin: 8px;
+  padding: 16px 24px;
+  border-radius: 4px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s, width 0.3s;
+  pointer-events: auto;
+  cursor: pointer;
+  width: auto;
+}
+.triggerToast-alert.success { background: #4caf50; }
+.triggerToast-alert.info    { background: #2196f3; }
+.triggerToast-alert.warning { background: #ff9800; }
+.triggerToast-alert.error   { background: #f44336; }
+
+.triggerToast-show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Positions */
+.triggerToast-top-right    { top: 16px; right: 16px; }
+.triggerToast-top-left     { top: 16px; left: 16px; }
+.triggerToast-bottom-right { bottom: 16px; right: 16px; }
+.triggerToast-bottom-left  { bottom: 16px; left: 16px; }
+.triggerToast-center       { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.triggerToast-close {
+  float: right;
+  margin-left: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.2s;
+}
+.triggerToast-close:hover {
+  color: #000;
+}

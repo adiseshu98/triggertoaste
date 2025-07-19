@@ -1,0 +1,65 @@
+<!-- In your HTML -->
+<link rel="stylesheet" href="triggerToast.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="triggerToast.js"></script>
+
+<button onclick="$.triggerToast({ type: 'success', message: 'Saved successfully!', position: 'top-right' })">Show Success</button>
+<button onclick="$.triggerToast({ type: 'error', message: 'Something went wrong!', position: 'bottom-left', autoHide: false })">Show Error</button>
+<button id="myBtn">Show Relative Toast</button>
+<div class="showRelative">Show Relative Toast Wrapper</div>
+<script>
+    // Warning alert, auto-hides after 4 seconds, with close button
+$.triggerToast({
+  type: 'warning',
+  message: 'This is a warningdfjhgjudsg------!',
+autoHide: false,
+});
+
+// Error alert, does not auto-hide, must be closed by button
+$.triggerToast({
+  type: 'error',
+  message: 'An error occurred!',
+  autoHide: true,
+  showCloseButton: true,
+  closeButtonHtml: 'Close' // Custom text instead of ×
+  
+});
+
+$.triggerToast({
+  type: 'success',
+  message: 'Custom styled notification!',
+  customClass: 'my-special-alert',
+  autoHide: true,
+  position: 'top-left'
+});
+
+$.triggerToast({
+  type: 'info',
+  message: 'Breakpoint test......................................!',
+  autoHide: false,
+  breakpoints: {
+    sm: { max: 767, width: '100%' },
+    md: { max: 999, width: '300px' },
+    lg: { max: Infinity, width: '600px' }
+  }
+});
+
+// Change for all future notifications
+$.extend(true, $.triggerToast.defaults, {
+  breakpoints: {
+    sm: { max: 700, width: '100%' },
+    md: { max: 1200, width: '400px' },
+    lg: { max: Infinity, width: '500px' }
+  }
+});
+  $('#myBtn').on('click', function() {
+    $.triggerToast({
+      type: 'info',
+      message: 'This toast is shown below the button!',
+      position: {
+        relativeTo: '.showRelative',
+        align: 'bottom'
+      }
+    });
+  });
+</script>
